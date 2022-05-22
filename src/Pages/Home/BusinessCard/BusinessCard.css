@@ -1,0 +1,36 @@
+.counter {
+    padding-top: 50px;
+    height: 400px;
+    color: white;
+    background: linear-gradient(to right, #454646e2, rgba(33, 33, 33, 0.844)),
+      url("https://www.theneweconomy.com/wp-content/uploads/2020/06/B051-remote-working-coronavirus-technology-scaled.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  .counts {
+    margin-top: 10px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .count {
+    text-align: center;
+    margin-top: 20px;
+  
+    border-radius: 10px;
+  }
+  .count h6 {
+    color: rgb(255, 255, 255);
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .counter {
+      height: 520px;
+    }
+    .counts {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }

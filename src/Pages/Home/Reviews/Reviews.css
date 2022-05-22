@@ -1,0 +1,22 @@
+.reviews-container{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+grid-gap: 20px;
+padding: 20px;
+
+}
+.review{
+    text-align: left;
+    padding: 20px;
+    border: 1px dashed lightgray;
+    background: rgb(238, 238, 238) ;
+}
+.review-icon:hover{
+    color: red;
+    cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+    .reviews-container{
+        grid-template-columns: repeat(1 ,1fr);
+    }
+}

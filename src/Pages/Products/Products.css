@@ -1,25 +1,33 @@
+.products-container{
+  background: black;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top: 80px;
+}
 .cards{
+
   display: grid;
-  background: rgb(0, 0, 0);
   grid-template-columns:repeat(3 , 1fr);
+  grid-gap: 20px;
   position: relative;
 }
-.circle1 {
-  background: #476fde;
-  left: 150px;
-  top: 150px;
+.gradient-text {
+  background-image: linear-gradient(115deg,#4fcf70,#12bcfe);
+  background-clip: text;
+  color: transparent;
+  font-size: 40px;
+  font-weight: 700;
+  animation: rotate 10s linear infinite;
+}
 
+@keyframes rotate {
+  100%{
+    filter: hue-rotate(-360deg)
+  }
 }
-.circle {
-  height: 232px;
-  width: 232px;
-  border-radius: 50%;
-  height: 232px;
-  width: 232px;
-  filter: blur(115px);
-  position: absolute;
-}
-.container{
+.product-container{
   margin: auto;
     position: relative;
     height: 400px;
@@ -32,12 +40,12 @@
     border-radius: 25px;
   
   }
-  .container:hover{
+  .product-container:hover{
     box-shadow: 0 0 15px 0 rgba(0,0,0,0.2);
     border: 1px solid red;
     
   }
-  .container .image{
+  .product-container .image{
     position: absolute;
     top: 0;
     left: 0;
@@ -45,19 +53,19 @@
     height: 100%;
    
   }
-  .container .image img{
+  .product-container .image img{
     height: 400px;
     width: 300px;
     object-fit: cover;
     border-radius: 20px;
     transition: all 0.6s ease;
   }
-  .container:hover .image img{
+  .product-container:hover .image img{
     transform: scale(1.4);
     
     filter: blur(1px);
   }
-  .container .card-content{
+  .product-container .card-content{
     position: relative;
     height: 400px;
     width: 300px;
@@ -70,8 +78,9 @@
     background: rgb(0, 0, 0);
     box-shadow: -1px -1px 6px rgba(0,0,0,0.1);
     transition: bottom 0.4s ease;
+    padding: 20px;
   }
-  .container:hover .card-content .wrapper{
+  .product-container:hover .card-content .wrapper{
     bottom: 0px;
     padding-bottom: 10px;
   }
@@ -110,7 +119,7 @@
 
   .wrapper .btns button{
     height: 40px;
-    width: 100%;
+    width: 40%;
     margin: 0 10px;
     border: 1px solid #F9004D;
     background: #101010;

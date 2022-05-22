@@ -1,0 +1,55 @@
+.banner{
+
+  /* background-image: url(https://images.wallpapersden.com/image/download/abstract-black-geometry-shape_ZpSZmpqtpaSklGZuZ2WtZmdlZQ.jpg) !important; */
+  background: url(https://i.ibb.co/JnC0gtB/itl-cat-material-design-desktop-wallpaper-737476.jpg);
+ 
+}
+.banner-image{
+    height: 700px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+  }
+  .content{
+    width: 50%;
+  }
+  .content h1 , p{
+    font-size: 50px;
+  }
+  .content h1{
+    color: #fff;
+    font-weight: 700;
+  }
+  .content p{
+    color: red;
+    font-weight: 700;
+  }
+  .image-banner{
+    width: 50%;
+  }
+  .banner-image img{
+    width: 50%;
+    height: 500px;
+  }
+  .thumbs , .thumbs-wrapper{
+    display: none;
+  }
+@media only screen and (max-width:998px){
+  .content h1 , p{
+    font-size: 35px;
+  }
+}
+@media only screen and (max-width:768px){
+  .banner-image{
+    height: 500px;
+   
+  }
+  .banner-image img{
+    width: 30%;
+    height: 300px;
+  }
+  .content h1 , p{
+    font-size: 20px;
+  }
+}

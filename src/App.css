@@ -12,7 +12,19 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.navbar{
+  color: #fff;
+  background: black;
+  border-bottom: 1px solid red;
+  position: fixed;
+  font-weight: 600;
+  z-index: 999;
+}
+.menu-compact{
+  background: black;
+  border: 1px solid red;
+  border-radius: 10px;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -27,6 +39,7 @@
 .App-link {
   color: #61dafb;
 }
+
 
 @keyframes App-logo-spin {
   from {

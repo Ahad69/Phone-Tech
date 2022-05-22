@@ -1,0 +1,16 @@
+.after{
+    position: relative;
+  }
+  .after::after {
+    content: "";
+    background: linear-gradient(to left, #4aced5, #3fb8e7);
+    width: 0;
+    height: 3px;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.5s;
+  }
+  .after:hover::after {
+    width: 100%;
+  }

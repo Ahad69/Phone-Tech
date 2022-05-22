@@ -1,0 +1,26 @@
+.logos{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    height: 250px;
+    padding: 0 40px;
+}
+.logos img{
+    filter: grayscale(100%);
+    display: block;
+    margin: auto;
+    width: 100px;
+    height: 80px;
+}
+.logos img:hover{
+    filter: grayscale(0%);
+}
+
+@media only screen and (max-width:768px){
+    .logos{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .logos img{
+        width: 80px;
+        height: 50px;
+    }
+}
