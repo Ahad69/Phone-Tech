@@ -5,8 +5,8 @@ const Logos = () => {
 
 
     return (
-        <div>
-            <h1 className='text-3xl'>Our Partners</h1>
+        <div className='pt-20 pb-20'>
+            <h1 className='text-3xl mb-10 gradient-text'>Our Partners</h1>
             <div className="logos container">
                 <img src=" https://i.ibb.co/QYCV6QY/kindpng-25699-1.png" alt="" />
                 <img src="https://i.ibb.co/TPyXstJ/kindpng-862841-1.png" alt="" />

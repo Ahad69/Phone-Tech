@@ -1,32 +1,34 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF , faGoogle } from "@fortawesome/free-brands-svg-icons";
+import React, { useState, useEffect } from "react";
+import {  useLocation, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import "./Sign.css";
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithEmailAndPassword,
+  useUpdateProfile,
+  useSignInWithGoogle,
+  useAuthState,
+} from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
-
 
 const Sign = () => {
   const [checkPass, setCheckPass] = useState(false);
-  const [displayName, setDisplayName] = useState('');
-  const [photoURL, setPhotoURL] = useState('');
+  const [displayName, setDisplayName] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
   const [email, setEmail] = useState(" ");
   const [password, setPassword] = useState(" ");
   const [confirmPassword, setConfirmPassword] = useState(" ");
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [user, loading, error] = useAuthState(auth);
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-  const [
-    createUserWithEmailAndPassword,
-    regiUser,
-    regiLoading,
-    regiError,
-  ] = useCreateUserWithEmailAndPassword(auth);
-  const [
-    signInWithEmailAndPassword,
-    loginUser,
-    loginLoading,
-    loginError,
-  ] = useSignInWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, regiUser, regiLoading, regiError] =useCreateUserWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, loginUser, loginLoading, loginError] =useSignInWithEmailAndPassword(auth);
+
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =useSignInWithGoogle(auth);
 
   const signUpName = (event) => {
     setDisplayName(event.target.value);
@@ -43,32 +45,39 @@ const Sign = () => {
   const signUpConfirmPassword = (event) => {
     setConfirmPassword(event.target.value);
   };
-  
 
-  const handleLogin = async(event)=>{
+  const handleLogin = async (event) => {
     event.preventDefault();
-    await signInWithEmailAndPassword(email, password)
-    event.target.reset()
+    await signInWithEmailAndPassword(email, password);
+    event.target.reset();
+  };
 
-  }
-
-
-  const handleRegistration = async(event) => {
+  const handleRegistration = async (event) => {
     event.preventDefault();
-   
 
     if (password !== confirmPassword) {
       setCheckPass(true);
-      return
+      return;
     } else {
       setCheckPass(false);
     }
-    
-    await createUserWithEmailAndPassword(email , password)
-    await updateProfile({displayName , photoURL})
-    event.target.reset()
+
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName, photoURL });
+    event.target.reset();
     setCheckPass(false);
-}
+  };
+
+
+
+  useEffect(() => {
+    if (user) {
+      navigate(location.state?.from?.pathname || "/");
+    }
+  });
+  
+
+
 
   return (
     <div className="login-section">
@@ -101,35 +110,38 @@ const Sign = () => {
                           Log In
                         </h4>
                         <form onSubmit={handleLogin}>
-                        <div className="form-group mb-5">
-                          <input
-                            type="email"
-                            name="logemail"
-                            className="form-style"
-                            placeholder="Your Email"
-                            id="logemail"
-                            onBlur={signUpEmail}
-                            autoComplete="off"
-                          />
-                          <i className="input-icon uil uil-at"></i>
-                        </div>
-                        <div className="form-group ">
-                          <input
-                            type="password"
-                            name="logpass"
-                            className="form-style"
-                            placeholder="Your Password"
-                            id="logpass"
-                            autoComplete="off"
-                            onBlur={signUpPassword}
-                          />
-                          <i className="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <button type="submit" className="login-btn mt-4">
-                            {
-                                loginLoading ?  <svg className="animate-spin h-5 w-5  bg-transparent border-x-4 rounded-xl  border-sky-600 ..."> </svg> :   "Login"
-                            }
-                           
+                          <div className="form-group mb-5">
+                            <input
+                              type="email"
+                              name="logemail"
+                              className="form-style"
+                              placeholder="Your Email"
+                              id="logemail"
+                              onBlur={signUpEmail}
+                              autoComplete="off"
+                            />
+                            <i className="input-icon uil uil-at"></i>
+                          </div>
+                          <div className="form-group ">
+                            <input
+                              type="password"
+                              name="logpass"
+                              className="form-style"
+                              placeholder="Your Password"
+                              id="logpass"
+                              autoComplete="off"
+                              onBlur={signUpPassword}
+                            />
+                            <i className="input-icon uil uil-lock-alt"></i>
+                          </div>
+                          <button type="submit" className="login-btn mt-4">
+                            {loginLoading ? (
+                              <svg className="animate-spin h-5 w-5  bg-transparent border-x-4 rounded-xl  border-sky-600 ...">
+                                {" "}
+                              </svg>
+                            ) : (
+                              "Login"
+                            )}
                           </button>
                         </form>
                         <p className="mb-0 forgot-text mt-4 text-center">
@@ -139,12 +151,23 @@ const Sign = () => {
                         </p>
                       </div>
                       <div>
-                      <button className="google-btn  mt-4">
-                      <FontAwesomeIcon className="mr-2 icon" icon={faGoogle} />  Google
-                          </button>
-                          <button className="facebook-btn mt-4 ml-5">
-                          <FontAwesomeIcon className="mr-2 icon" icon={faFacebookF} />  Facebook
-                          </button>
+                        <button
+                          className="google-btn  mt-4"
+                          onClick={() => signInWithGoogle()}
+                        >
+                          <FontAwesomeIcon
+                            className="mr-2 icon"
+                            icon={faGoogle}
+                          />{" "}
+                          Google
+                        </button>
+                        <button className="facebook-btn mt-4 ml-5">
+                          <FontAwesomeIcon
+                            className="mr-2 icon"
+                            icon={faFacebookF}
+                          />{" "}
+                          Facebook
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -187,7 +210,6 @@ const Sign = () => {
                               className="form-style "
                               placeholder="Your Photo"
                               id="signemail"
-                            
                             />
                             <i className="input-icon uil uil-at"></i>
                           </div>
@@ -215,23 +237,43 @@ const Sign = () => {
                             />
                             <i className="input-icon uil uil-lock-alt"></i>
                           </div>
-                          {checkPass ? <h6 className="text-red-600">Your Password didn't Matched</h6> : " "}
-                        
+                          {checkPass ? (
+                            <h6 className="text-red-600">
+                              Your Password didn't Matched
+                            </h6>
+                          ) : (
+                            " "
+                          )}
+
                           <button type="submit" className="login-btn mt-4">
-                            {
-                                updating || regiLoading ||  loginLoading ?  <svg className="animate-spin h-5 w-5 mr-3 bg-transparent border-x-4 rounded-xl  border-orange-600 ..."> </svg> :   "Register"
-                            }
-                           
+                            {updating || regiLoading || loginLoading ? (
+                              <svg className="animate-spin h-5 w-5 mr-3 bg-transparent border-x-4 rounded-xl  border-orange-600 ...">
+                                {" "}
+                              </svg>
+                            ) : (
+                              "Register"
+                            )}
                           </button>
                         </form>
                       </div>
                       <div>
-                      <button className="google-btn  mt-4">
-                      <FontAwesomeIcon className="mr-2 icon" icon={faGoogle} />  Google
-                          </button>
-                          <button className="facebook-btn mt-4 ml-5">
-                          <FontAwesomeIcon className="mr-2 icon" icon={faFacebookF} />  Facebook
-                          </button>
+                        <button
+                          className="google-btn  mt-4"
+                          onClick={() => signInWithGoogle()}
+                        >
+                          <FontAwesomeIcon
+                            className="mr-2 icon"
+                            icon={faGoogle}
+                          />{" "}
+                          Google
+                        </button>
+                        <button className="facebook-btn mt-4 ml-5">
+                          <FontAwesomeIcon
+                            className="mr-2 icon"
+                            icon={faFacebookF}
+                          />{" "}
+                          Facebook
+                        </button>
                       </div>
                     </div>
                   </div>

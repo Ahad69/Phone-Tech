@@ -6,15 +6,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 600px;
+    height: 700px;
   padding: 0 40px;
   background: black;
+
   }
   .home-card{
+    border: 1px solid red;
     height: 300px;
     max-width: 350px;
     margin: 0 20px;
-    
+    background: rgb(234, 234, 234);
     transition: 0.4s;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
   }
@@ -38,7 +40,7 @@
   .home-card .top-text .name{
     font-size: 25px;
     font-weight: 600;
-    color: #fff;
+    color: rgb(255, 108, 108);
     transition-duration: 20s;
   }
   .home-card .top-text p{
@@ -49,7 +51,7 @@
   .home-card .bottom-text{
     padding: 0 20px 10px 20px;
     margin-top: 5px;
-  color: #fff;
+  color: rgb(0, 0, 0);
     opacity: 0;
     visibility: hidden;
   

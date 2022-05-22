@@ -7,9 +7,13 @@ padding: 20px;
 }
 .review{
     text-align: left;
+    height: 250px;
     padding: 20px;
     border: 1px dashed lightgray;
     background: rgb(238, 238, 238) ;
+}
+.review-icon{
+    margin-top: 50px;
 }
 .review-icon:hover{
     color: red;

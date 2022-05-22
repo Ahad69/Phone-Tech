@@ -10,7 +10,7 @@ const Footer = () => {
         <div>
           <FontAwesomeIcon className="gear" icon={faGear} />
           <br />
-          <p className='footer-gradient'> Rattle Tech Co. Ltd.</p>
+          <p className='footer-gradient'> Phone Tech Co. Ltd.</p>
         </div> 
         <div>
           <span className="footer-title">Social</span> 

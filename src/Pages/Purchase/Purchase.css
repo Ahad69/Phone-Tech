@@ -1,0 +1,10 @@
+.purchase{
+    background: black;
+    display: grid;
+    padding: 20px;
+    text-align: left;
+    grid-template-columns: 2fr 2fr;
+}
+.selectedProducts{
+    color: aliceblue;
+}
