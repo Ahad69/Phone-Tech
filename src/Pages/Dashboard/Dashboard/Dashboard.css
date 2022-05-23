@@ -1,0 +1,40 @@
+.drawer{
+    padding-top:60px ;
+}
+.drawer-content {
+background: rgb(245, 245, 245);
+        margin: 20px;
+        border-radius: 20px;
+}
+.dash-menu{
+    text-align: left;
+    background: black;
+}
+.dash-menu li{
+    color: aliceblue;
+    padding: 10px;
+    border: 1px solid red;
+    font-weight: 700;
+    margin: 20px;
+}
+.dash-menu li:hover{
+    color: aliceblue;
+    font-weight: 700;
+}
+
+.after2{
+    position: relative;
+  }
+  .after2::after {
+    content: "";
+    background: linear-gradient(to left, #df3434, #e73f3f , rgba(255, 255, 255, 0) , rgba(255, 255, 255, 0)) ;
+    width: 0;
+    height: 46px;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.5s;
+  }
+  .after2:hover::after {
+    width: 100%;
+  }

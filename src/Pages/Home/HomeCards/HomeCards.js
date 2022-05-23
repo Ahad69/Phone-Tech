@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import useProducts from "../../../Hooks/useProducts";
 import "./HomeCards.css";
 
@@ -55,7 +56,7 @@ const HomeCards = () => {
                {`${product.description.slice(0,100)} .....`}
               </div>
               <div className="button">
-                <button>Buy Now</button>
+              <button><Link to={`/products/${product._id}`}>Buy now</Link></button>
               </div>
             </div>
           </div>)

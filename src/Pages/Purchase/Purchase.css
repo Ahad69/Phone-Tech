@@ -4,7 +4,29 @@
     padding: 20px;
     text-align: left;
     grid-template-columns: 2fr 2fr;
+    
+    grid-gap: 50px;
 }
 .selectedProducts{
+    padding-top: 50px;
     color: aliceblue;
+}
+.selectedProducts img{
+    width: 80%;
+    height: 400px;
+}
+
+.purchase-form{
+    padding-top: 50px;
+    
+}
+#quantity{
+    margin-right: 30px;
+    width: 58%;
+}
+#hidden{
+    display: none;
+}
+.input{
+    width: 80%;
 }
