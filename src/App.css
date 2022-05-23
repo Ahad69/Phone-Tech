@@ -35,7 +35,23 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.notfound{
+  background: black;
+  height: 80vh;
+  color: red;
+}
+.notfound-content{
+position: absolute;
+top: 30%;
+left: 35%;
+}
+@media only screen and (max-width:768px) {
+  .notfound-content{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    }
+}
 .App-link {
   color: #61dafb;
 }

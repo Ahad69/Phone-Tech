@@ -41,8 +41,9 @@ const Purchase = () => {
     const orderQuantity = event.target.quantity.value;
     const productName = selectedProducts?.name;
     const productImage = selectedProducts?.img;
+    const status = 'pending'
 
-    const orderDetails = ({customerEmail,customerName,orderQuantity , custmerAddress ,productName ,productImage } )
+    const orderDetails = ({customerEmail,customerName,orderQuantity , custmerAddress ,productName ,productImage , status } )
    
 
     fetch('http://localhost:5000/orders', {

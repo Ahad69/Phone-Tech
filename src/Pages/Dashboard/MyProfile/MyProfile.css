@@ -1,0 +1,55 @@
+.myProfile{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+grid-gap: 40px;
+}
+.myProfile-contact{
+    text-align: left;
+    color: rgb(255, 195, 195);
+    padding: 20px;
+    font-weight: 600;
+    margin-top: 20%;
+    background: rgb(255, 76, 76);
+    height: 650px;
+    width: 350px;
+    border-radius: 50px;
+    background: #000000;
+    box-shadow:  20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+    
+}
+
+.myProfile-Details{
+    text-align: left;
+    color: rgb(255, 195, 195);
+    padding: 10px;
+    font-weight: 600;
+    margin-top: 20%;
+    background: rgb(255, 76, 76);
+    height: 650px;
+    width: 350px;
+    border-radius: 50px;
+    background: #000000;
+    box-shadow:  20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+}
+.myProfile-Details > input{
+    color: black !important;
+}
+#update-button{
+    background: #000;
+    border: 1px solid red;
+    color: red;
+    font-size: 20px;
+}
+#update-button:hover{
+    background: red;
+    color: white;
+}
+@media screen and (max-width: 768px) {
+    .myProfile{
+        display: grid;
+        grid-template-columns: repeat(1 , 1fr);
+        grid-gap: 40px;
+    }
+}

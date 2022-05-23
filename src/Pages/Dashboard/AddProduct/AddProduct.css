@@ -1,0 +1,22 @@
+.addProduct{
+    padding-top: 100px;
+}
+.addProduct input , .addProduct textarea{
+    width: 70%;
+}
+.addProduct textarea {
+    height: 100px;
+}
+#addproduct-button{
+    font-size: 20px;
+    width: 70%;
+    
+    border: 1px solid red;
+    font-weight: 700;
+    color: rgb(255, 87, 87);
+    background: rgb(0, 0, 0) !important;
+}
+#addproduct-button:hover{
+    color: aliceblue;
+    background: rgb(233, 57, 57) !important;
+}

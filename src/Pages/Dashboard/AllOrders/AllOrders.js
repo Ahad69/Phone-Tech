@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const AllOrders = () => {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch("http://localhost:5000/all-orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
@@ -21,6 +21,7 @@ const AllOrders = () => {
               <th>Product</th>
               <th>Customer</th>
               <th>Order Quantity</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -57,7 +58,11 @@ const AllOrders = () => {
                 </td>
                 <td>{order.orderQuantity}</td>
                 <th>
-                  <button class="btn btn-ghost btn-xs">details</button>
+                  <button class="btn btn-ghost btn-xs">{order.status}</button>
+                  <button class="btn btn-ghost btn-xs">{order.status}</button>
+                </th>
+                <th>
+                  <button class="btn btn-ghost btn-xs">Cancel</button>
                 </th>
               </tr>)
            }

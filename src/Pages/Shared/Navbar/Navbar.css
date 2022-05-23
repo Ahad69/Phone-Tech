@@ -14,3 +14,9 @@
   .after:hover::after {
     width: 100%;
   }
+  .menu-icon{
+    width: 10px;
+  }
+  .btn-ghost svg{
+    /* background: red; */
+  }

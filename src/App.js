@@ -18,6 +18,7 @@ import DefaultDash from "./Pages/Dashboard/DefaultDash/DefaultDash";
 import AddProduct from "./Pages/Dashboard/AddProduct/AddProduct";
 import AllOrders from "./Pages/Dashboard/AllOrders/AllOrders";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
+import NotFound from "./Pages/NotFound/NotFound";
 
 function App() {
   useEffect(() => {
@@ -55,6 +56,7 @@ function App() {
 
         </Route>
         <Route path="/login" element={<Sign></Sign>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
