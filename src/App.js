@@ -20,6 +20,7 @@ import AllOrders from "./Pages/Dashboard/AllOrders/AllOrders";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
 import NotFound from "./Pages/NotFound/NotFound";
 import ManageProducts from "./Pages/Dashboard/ManageProducts/ManageProducts";
+import RequireAdmin from "./Pages/Auth/RequireAdmin/RequireAdmin";
 
 function App() {
   useEffect(() => {
@@ -51,10 +52,10 @@ function App() {
           <Route path="review" element={<AddReview />} />
           <Route path="my-orders" element={<MyOrders />} />
           <Route path="profile" element={<MyProfile />} />
-          <Route path="add-products" element={<AddProduct />} />
-          <Route path="manage-products" element={<ManageProducts />} />
-          <Route path="all-orders" element={<AllOrders />} />
-          <Route path="make-admin" element={<MakeAdmin />} />
+          <Route path="add-products" element={<RequireAdmin><AddProduct /></RequireAdmin>} />
+          <Route path="manage-products" element={<RequireAdmin><ManageProducts /></RequireAdmin>} />
+          <Route path="all-orders" element={<RequireAdmin><AllOrders /></RequireAdmin>} />
+          <Route path="make-admin" element={<RequireAdmin><MakeAdmin /></RequireAdmin>} />
           
 
         </Route>

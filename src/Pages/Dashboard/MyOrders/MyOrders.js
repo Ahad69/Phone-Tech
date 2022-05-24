@@ -2,17 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Swal from "sweetalert2";
+import { useNavigate } from 'react-router-dom';
 
 const MyOrders = () => {
     const [user, loading, error] = useAuthState(auth);
     const [noOrder , setNoOrder] = useState(false)
     const [orders, setOrders] = useState([]);
+    const navigate = useNavigate()
     useEffect(() => {
 
       fetch(`http://localhost:5000/orders?customerEmail=${user.email}` , {
-        
-      })
-        .then((res) => res.json())
+            method: 'GET',
+            headers : {
+              'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then((res) => {
+    
+          if(res.status == 401 || res.status == 403){
+            navigate('/')
+          }
+          return res.json()
+        })
         .then((data) => setOrders(data));
     }, []);
 

@@ -60,10 +60,10 @@ const MyProfile = () => {
             <h4 className='text-center text-4xl'> {user?.displayName}</h4>
             <br />
             <h1 className='text-2xl'>Contact :- </h1>
-           <h4>   <FontAwesomeIcon  icon={faEnvelope} /> : <a  href={`mailto:${user?.email}`} >Click Here for Email</a></h4>
-           <h4>   <FontAwesomeIcon  icon={faFacebookF} /> : <a href={profile?.facebook}>Click Here for Facebook</a></h4>
-           <h4>   <FontAwesomeIcon  icon={faLinkedin} /> : <a href={profile?.linkdin}>Click Here for Linkdin</a></h4>
-           <h4>   <FontAwesomeIcon  icon={faSkype} /> : <a href={profile?.skype}>Click Here for Skype</a></h4>
+           <h4>   <FontAwesomeIcon  icon={faEnvelope} /> : <a  href={`mailto:${user?.email}`} >{user?.email}</a></h4>
+           <h4>   <FontAwesomeIcon  icon={faFacebookF} /> : <a href={profile?.facebook}>www.facebook.com/{user?.displayName}</a></h4>
+           <h4>   <FontAwesomeIcon  icon={faLinkedin} /> : <a href={profile?.linkdin}>www.linkdin.com/{user?.displayName}</a></h4>
+           <h4>   <FontAwesomeIcon  icon={faSkype} /> : <a href={profile?.skype}>www.skype.com/{user?.displayName}</a></h4>
             <br />
             <h1 className='text-2xl'>About :- </h1>
       
