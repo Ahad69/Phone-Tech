@@ -15,7 +15,6 @@ const Purchase = () => {
   const selectedProducts = products.find((p) => p._id == id);
 
   const [quantity, setQuantity] = useState(selectedProducts?.minimum);
-
   const [error, setError] = useState(false);
 
   const handleQuantity = (event) => {

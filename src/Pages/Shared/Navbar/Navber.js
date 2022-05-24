@@ -15,6 +15,8 @@ const Navber = () => {
 
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken')
+    
   };
     return (
         <div className="navbar bg-dark">

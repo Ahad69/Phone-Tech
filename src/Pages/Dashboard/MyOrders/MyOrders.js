@@ -5,10 +5,13 @@ import Swal from "sweetalert2";
 
 const MyOrders = () => {
     const [user, loading, error] = useAuthState(auth);
+    const [noOrder , setNoOrder] = useState(false)
     const [orders, setOrders] = useState([]);
     useEffect(() => {
 
-      fetch(`http://localhost:5000/orders?customerEmail=${user.email}`)
+      fetch(`http://localhost:5000/orders?customerEmail=${user.email}` , {
+        
+      })
         .then((res) => res.json())
         .then((data) => setOrders(data));
     }, []);
@@ -41,67 +44,80 @@ const MyOrders = () => {
       });
 
     }
+    useEffect(()=>{
+      if(orders == 0){
+        setNoOrder(true)
+    }
+    else{
+      setNoOrder(false)
+    }
+    })
     return (
       <div>
+       
         <div className="overflow-x-auto w-full">
-          <table className="table w-full">
-            <thead>
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
-                <th>Product</th>
-                <th>Customer</th>
-                <th>Order Quantity</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-             {
-                 orders.map(order =>  <tr>
-                  <th>
-                    <label>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                  </th>
-                  <td>
-                    <div className="flex items-center space-x-3">
-                      <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                          <img
-                            src={order.productImage}
-                            alt="Avatar Tailwind CSS Component"
-                          />
+        {
+                noOrder ?  <p>You have no Order</p> : <table className="table w-full">
+                <thead>
+                  <tr>
+                    <th>
+                      <label>
+                        <input type="checkbox" className="checkbox" />
+                      </label>
+                    </th>
+                    <th>Product</th>
+                    <th>Customer</th>
+                    <th>Order Quantity</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                
+                 {
+                     orders.map(order =>  <tr>
+                      <th>
+                        <label>
+                          <input type="checkbox" className="checkbox" />
+                        </label>
+                      </th>
+                      <td>
+                        <div className="flex items-center space-x-3">
+                          <div className="avatar">
+                            <div className="mask mask-squircle w-12 h-12">
+                              <img
+                                src={order.productImage}
+                                alt="Avatar Tailwind CSS Component"
+                              />
+                            </div>
+                          </div>
+                          <div>
+                            <div className="font-bold">{order.productName}</div>
+                           
+                          </div>
                         </div>
-                      </div>
-                      <div>
-                        <div className="font-bold">{order.productName}</div>
-                       
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    {order.customerName}
-                    <br />
-                    <span className="badge badge-ghost badge-sm">
-                      {order.customerEmail}
-                    </span>
-                  </td>
-                  <td>{order.orderQuantity}</td>
-                  <th>
-                    <button className="btn btn-ghost btn-xs">{order.status}</button>
-                    <button className="btn btn-ghost btn-xs">Pay</button>
-                  </th>
-                  <th>
-                    <button onClick={()=>handleDelete(order._id)} className="btn btn-ghost btn-xs">Cancel</button>
-                  </th>
-                </tr>)
-             }
-            </tbody>
-          </table>
+                      </td>
+                      <td>
+                        {order.customerName}
+                        <br />
+                        <span className="badge badge-ghost badge-sm">
+                          {order.customerEmail}
+                        </span>
+                      </td>
+                      <td>{order.orderQuantity}</td>
+                      <th>
+                        <button className="btn btn-ghost btn-xs">{order.status}</button>
+                        <button className="btn btn-ghost btn-xs">Pay</button>
+                      </th>
+                      <th>
+                        <button onClick={()=>handleDelete(order._id)} className="btn btn-ghost btn-xs">Cancel</button>
+                      </th>
+                    </tr>)
+                 }
+                </tbody>
+              </table>
+          }
+          
         </div>
       </div>
     );

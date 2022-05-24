@@ -11,6 +11,7 @@ import {
   useAuthState,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import useToken from "../../../Hooks/useToken";
 
 const Sign = () => {
   const [checkPass, setCheckPass] = useState(false);
@@ -27,8 +28,9 @@ const Sign = () => {
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const [createUserWithEmailAndPassword, regiUser, regiLoading, regiError] =useCreateUserWithEmailAndPassword(auth);
   const [signInWithEmailAndPassword, loginUser, loginLoading, loginError] =useSignInWithEmailAndPassword(auth);
-
   const [signInWithGoogle, googleUser, googleLoading, googleError] =useSignInWithGoogle(auth);
+
+  const [token ] = useToken( googleUser || loginUser || regiUser)
 
   const signUpName = (event) => {
     setDisplayName(event.target.value);
@@ -69,16 +71,12 @@ const Sign = () => {
   };
 
 
-
   useEffect(() => {
-    if (user) {
+    if (token) {
       navigate(location.state?.from?.pathname || "/");
     }
   });
   
-
-
-
   return (
     <div className="login-section">
       <div className="container">
@@ -134,6 +132,9 @@ const Sign = () => {
                             />
                             <i className="input-icon uil uil-lock-alt"></i>
                           </div>
+                         <h6 className="text-red-600">   {
+                              loginError ? `${loginError.message.split('/')[1].split(')')[0]  }`: ''
+                            }</h6>
                           <button type="submit" className="login-btn mt-4">
                             {loginLoading ? (
                               <svg className="animate-spin h-5 w-5  bg-transparent border-x-4 rounded-xl  border-sky-600 ...">
