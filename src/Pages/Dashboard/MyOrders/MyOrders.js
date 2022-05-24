@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Swal from "sweetalert2";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const MyOrders = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -64,7 +64,7 @@ const MyOrders = () => {
     }
     })
     return (
-      <div>
+      <div className='pt-10'>
        
         <div className="overflow-x-auto w-full">
         {
@@ -80,13 +80,14 @@ const MyOrders = () => {
                     <th>Customer</th>
                     <th>Order Quantity</th>
                     <th>Status</th>
+                    <th>Payment</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                 
                  {
-                     orders.map(order =>  <tr>
+                     orders.map(order =>  <tr key={order._id}>
                       <th>
                         <label>
                           <input type="checkbox" className="checkbox" />
@@ -118,8 +119,12 @@ const MyOrders = () => {
                       <td>{order.orderQuantity}</td>
                       <th>
                         <small className="text-red-600">{order.status}</small>
-                        <button className="btn btn-ghost btn-xs">Pay</button>
+                        
                       </th>
+                      <th>
+                        <button className="btn btn-ghost btn-xs"><Link to={`/dashboard/payment/${order._id}`}>Pay</Link></button>
+                        
+                        </th>
                       <th>
                         <button onClick={()=>handleDelete(order._id)} className="btn btn-ghost btn-xs">Cancel</button>
                       </th>

@@ -12,7 +12,7 @@ function RequireAdmin({ children }) {
   
 
     if(loading || isLoading){
-        return <div className="bg-black pt-80 pb-80">
+        return <div className=" pt-80 pb-80">
             <svg style={{borderRadius:"50%"  , borderTop:"15px solid red" ,borderBottom:"15px solid red" , margin: 'auto'}} className="animate-spin h-20 w-20  bg-transparent  border-orange-600 ..."> </svg>
         </div>
     }

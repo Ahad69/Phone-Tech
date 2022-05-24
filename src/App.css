@@ -40,6 +40,14 @@
   height: 80vh;
   color: red;
 }
+.checkout{
+  margin: auto;
+  border-radius: 20px;
+  background: rgb(249, 219, 219);
+  width: 600px;
+  padding: 20px;
+}
+
 .notfound-content{
 position: absolute;
 top: 30%;

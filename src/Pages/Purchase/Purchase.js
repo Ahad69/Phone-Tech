@@ -32,19 +32,20 @@ const Purchase = () => {
     }
   });
 
+  console.log()
   const handleSubmit = (event) => {
     event.preventDefault();
     const customerName = event.target.displayName.value;
     const customerEmail = event.target.email.value;
     const custmerAddress = event.target.address.value;
     const orderQuantity = event.target.quantity.value;
+    const cost = selectedProducts?.price * orderQuantity
     const productName = selectedProducts?.name;
     const productImage = selectedProducts?.img;
     const status = 'pending'
     const payment = 'unpaid'
 
-    const orderDetails = ({customerEmail,customerName,orderQuantity , custmerAddress ,productName ,productImage , status  , payment} )
-   
+    const orderDetails = ({customerEmail,customerName,orderQuantity , custmerAddress ,productName ,productImage , status  , payment , cost} )
 
     fetch('http://localhost:5000/orders', {
       method:"POST",

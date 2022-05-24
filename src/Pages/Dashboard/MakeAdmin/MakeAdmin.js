@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
+import './MakeAdmin.css'
 
 const MakeAdmin = () => {
   const [users, setUsers] = useState([]);
@@ -79,10 +80,10 @@ const MakeAdmin = () => {
 
   return (
     <div>
-      <div className="overflow-x-auto flex">
+      <div className="overflow-x-auto table-container w-full ">
         <div>
         <h1 className="gradient-text">All Users</h1>
-        <table className="table w-80 mr-10 ">
+        <table className="table w-full ">
           <thead>
             <tr>
               <th>#</th>
@@ -98,12 +99,12 @@ const MakeAdmin = () => {
 
                 <td>
                   {
-                    user.role ? ''  : <> <button onClick={()=>makeAdmin(user.email)} className=" btn bg-black btn-xs">Make Admin</button> <button onClick={()=>handleDelete(user._id)} className="ml-5 btn bg-red-600 btn-xs">Remove User</button></>
+                    user.role ? ''  : <div className="buttons"> <button onClick={()=>makeAdmin(user.email)} className=" btn rma bg-black btn-xs">Make Admin</button> <button onClick={()=>handleDelete(user._id)} className=" rma btn bg-red-600 btn-xs">Remove</button> </div>
                   }
                   
                 </td>
                 <td>
-               
+           
                 </td>
               </tr>
             ))}
@@ -111,7 +112,7 @@ const MakeAdmin = () => {
         </table>
         </div>
       
-        <div>
+        <div className="admin-table">
           <h1 className="gradient-text">Admin</h1>
         <table className="table w-50 ml-5">
           <thead>
@@ -127,7 +128,7 @@ const MakeAdmin = () => {
                 <td>{user.email}</td>
                 
                 <td>
-                  <button onClick={()=>handleDelete(user._id)} className="ml-5 btn bg-red-600 btn-xs">Remove Admin</button>
+                  <button onClick={()=>handleDelete(user._id)} className="ml-5 rma btn bg-red-600 btn-xs">Remove Admin</button>
                 </td>
               </tr>
             ))}

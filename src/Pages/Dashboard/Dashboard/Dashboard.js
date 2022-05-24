@@ -8,7 +8,6 @@ import "./Dashboard.css"
 const Dashboard = () => {
   const [user, loading, error] = useAuthState(auth);
   const [admin] = useAdmin(user)
-  console.log(admin)
   
     return (
         <div>

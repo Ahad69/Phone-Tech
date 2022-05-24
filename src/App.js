@@ -21,6 +21,7 @@ import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
 import NotFound from "./Pages/NotFound/NotFound";
 import ManageProducts from "./Pages/Dashboard/ManageProducts/ManageProducts";
 import RequireAdmin from "./Pages/Auth/RequireAdmin/RequireAdmin";
+import Payment from "./Pages/Dashboard/Payment/Payment";
 
 function App() {
   useEffect(() => {
@@ -48,6 +49,7 @@ function App() {
             </RequireAuth>
           }
         >
+          <Route path="payment/:id" element={<Payment></Payment>} />
           <Route index element={<DefaultDash />} />
           <Route path="review" element={<AddReview />} />
           <Route path="my-orders" element={<MyOrders />} />
@@ -56,6 +58,7 @@ function App() {
           <Route path="manage-products" element={<RequireAdmin><ManageProducts /></RequireAdmin>} />
           <Route path="all-orders" element={<RequireAdmin><AllOrders /></RequireAdmin>} />
           <Route path="make-admin" element={<RequireAdmin><MakeAdmin /></RequireAdmin>} />
+          
           
 
         </Route>

@@ -51,7 +51,7 @@ const AllOrders = () => {
     .then(data => console.log(data))
  }
   return (
-    <div>
+    <div className="pt-10">
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           <thead>
@@ -65,6 +65,7 @@ const AllOrders = () => {
               <th>Customer</th>
               <th>Order Quantity</th>
               <th>Status</th>
+              <th>Payment</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -101,8 +102,11 @@ const AllOrders = () => {
                 </td>
                 <td>{order.orderQuantity}</td>
                 <th>
-                  <button onClick={()=>handleStatus(order._id)} className="btn btn-ghost btn-xs">{order.status}</button>
-                  <button className="btn btn-ghost btn-xs">{order.payment}</button>
+                  <button onClick={()=>handleStatus(order._id)} className="btn text-red-600 btn-ghost btn-xs">{order.status}</button>
+                 
+                </th>
+                <th>
+                <button className="btn btn-ghost btn-xs">{order.payment}</button>
                 </th>
                 <th>
                   <button onClick={()=>handleDelete(order._id)} className="btn btn-ghost btn-xs">Cancel</button>
