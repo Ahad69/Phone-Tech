@@ -41,8 +41,9 @@ const Purchase = () => {
     const productName = selectedProducts?.name;
     const productImage = selectedProducts?.img;
     const status = 'pending'
+    const payment = 'unpaid'
 
-    const orderDetails = ({customerEmail,customerName,orderQuantity , custmerAddress ,productName ,productImage , status } )
+    const orderDetails = ({customerEmail,customerName,orderQuantity , custmerAddress ,productName ,productImage , status  , payment} )
    
 
     fetch('http://localhost:5000/orders', {

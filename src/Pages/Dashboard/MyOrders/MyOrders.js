@@ -117,7 +117,7 @@ const MyOrders = () => {
                       </td>
                       <td>{order.orderQuantity}</td>
                       <th>
-                        <button className="btn btn-ghost btn-xs">{order.status}</button>
+                        <small className="text-red-600">{order.status}</small>
                         <button className="btn btn-ghost btn-xs">Pay</button>
                       </th>
                       <th>
