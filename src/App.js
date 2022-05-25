@@ -3,7 +3,7 @@ import Home from "./Pages/Home/Home/Home";
 import { Route, Routes } from "react-router-dom";
 import Products from "./Pages/Products/Products";
 import Navber from "./Pages/Shared/Navbar/Navber";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "./Pages/Shared/Footer/Footer";
@@ -22,17 +22,37 @@ import NotFound from "./Pages/NotFound/NotFound";
 import ManageProducts from "./Pages/Dashboard/ManageProducts/ManageProducts";
 import RequireAdmin from "./Pages/Auth/RequireAdmin/RequireAdmin";
 import Payment from "./Pages/Dashboard/Payment/Payment";
+import Portfolio from "./Pages/Porfolio/Portfolio";
 
 function App() {
   useEffect(() => {
     AOS.init({});
   }, []);
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   return (
     <div className="App">
+       {loading ? (
+        <div className="loader pt-20 bg-black pb-40 ">
+          <div className="bg-black pt-80 pb-80">
+            <svg style={{borderRadius:"50%"  , borderTop:"15px solid red" ,borderBottom:"15px solid red" , margin: 'auto'}} className="animate-spin h-20 w-20  bg-transparent  border-orange-600 ..."> </svg>
+        </div>
+        </div>
+      ) : (
+        <>
       <Navber></Navber>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/portfolio" element={<Portfolio />} />
         <Route
           path="/products/:id"
           element={
@@ -66,7 +86,9 @@ function App() {
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
+      </>)}
     </div>
+
   );
 }
 

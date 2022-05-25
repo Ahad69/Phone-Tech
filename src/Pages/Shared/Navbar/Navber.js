@@ -29,6 +29,7 @@ const Navber = () => {
      
       <li><ActiveRoute to='/'>Home</ActiveRoute></li>
       <li className='after'><ActiveRoute to='/products'>Products</ActiveRoute></li>
+      <li className='after'><ActiveRoute to='/portfolio'>Portfolio</ActiveRoute></li>
       {
         user?.email &&  <li className='after'><ActiveRoute to='/dashboard'>Dashboard</ActiveRoute></li>
       }
@@ -41,8 +42,6 @@ const Navber = () => {
         </div>
       </div></li> <button className=' text-red-600' onClick={logout}>Log Out</button> </ul> :   <li className='list-none '><ActiveRoute to='/login'>Login</ActiveRoute></li>
       }
-
-  
   </div>
  
       </ul>
@@ -53,6 +52,7 @@ const Navber = () => {
     <ul className="menu menu-horizontal p-0">
     <li className='after'><ActiveRoute to='/'>Home</ActiveRoute></li>
       <li className='after'><ActiveRoute to='/products'>Products</ActiveRoute></li>
+      <li className='after'><ActiveRoute to='/portfolio'>Portfolio</ActiveRoute></li>
       {
         user?.email &&  <li className='after'><ActiveRoute to='/dashboard'>Dashboard</ActiveRoute></li>
       }

@@ -84,10 +84,11 @@ const MakeAdmin = () => {
         <div>
         <h1 className="gradient-text">All Users</h1>
         <table className="table w-full ">
-          <thead>
+          <thead className="w-full">
             <tr>
-              <th>#</th>
+              <th>Users</th>
               <th>Name</th>
+              
               <th>Action</th>
             </tr>
           </thead>

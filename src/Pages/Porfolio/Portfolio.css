@@ -1,0 +1,210 @@
+.myself-container {
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  padding-top: 100px;
+}
+.myself {
+  border: 1px solid red;
+  display: flex;
+  box-shadow: 20px 20px 60px #926565, -20px -20px 60px #926565;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 20px;
+  background: url("https://i.ibb.co/HGJCdM1/ezgif-com-gif-maker-3.gif");
+  width: 80%;
+  background-position: center;
+  background-size: cover;
+  margin: auto;
+}
+.mySelf-image {
+  width: 400px;
+}
+.mySelf-content {
+  width: 500px;
+}
+.education {
+  text-align: left;
+}
+.mySelf-image img {
+  height: 500px;
+  border-radius: 20px;
+}
+
+.first-image {
+  border: 2px solid red;
+  border-radius: 20px;
+  width: 400px;
+  height: 500px;
+  background: url("https://i.ibb.co/qWcmjsR/screencapture-erevolute-2022-05-25-09-16-42.png");
+  background-position: top;
+  background-size: cover;
+  transition: ease-in-out 8s;
+}
+.first-image:hover {
+  background-position: bottom;
+}
+.first-image img {
+  width: 400px;
+}
+.first-porfolio {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.first-content {
+  width: 600px;
+  text-align: left;
+}
+
+.second-image {
+  border: 2px solid red;
+  border-radius: 20px;
+  width: 400px;
+  height: 500px;
+  background: url("https://i.ibb.co/fHx7FBZ/screencapture-assignment-11-car-web-app-2022-05-25-09-14-39.png");
+  background-position: top;
+  background-size: cover;
+  transition: ease-in-out 8s;
+}
+.second-image:hover {
+  background-position: bottom;
+}
+.second-image img {
+  width: 400px;
+}
+.second-porfolio {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.second-content {
+  width: 600px;
+  text-align: right;
+}
+
+.third-image {
+  border: 2px solid red;
+  border-radius: 20px;
+  width: 400px;
+  height: 500px;
+  background: url("https://i.ibb.co/yBCkPGt/screencapture-assignment-11-c2fc2-web-app-2022-05-25-09-21-02.png");
+  background-position: top;
+  background-size: cover;
+  transition: ease-in-out 8s;
+}
+.third-image:hover {
+  background-position: bottom;
+}
+.third-image img {
+  width: 400px;
+}
+.third-porfolio {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.third-content {
+  width: 600px;
+  text-align: left;
+}
+
+@media only screen and (max-width: 998px) {
+  .mySelf-content {
+    width: 90%;
+  }
+
+  .mySelf-image {
+    width: 90%;
+    padding-left: 50px;
+  }
+  .myself {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-direction: column;
+  }
+  .mySelf-content p {
+    font-size: 25px;
+  }
+  .first-image {
+    width: 600px;
+  }
+  .first-image img {
+    width: 600px;
+  }
+  .first-porfolio {
+    flex-direction: column;
+  }
+
+  .second-image {
+    width: 600px;
+  }
+  .second-image img {
+    width: 600px;
+  }
+  .second-porfolio {
+    flex-direction: column;
+  }
+  .third-image {
+    width: 600px;
+  }
+  .third-image img {
+    width: 600px;
+  }
+  .third-porfolio {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .mySelf-image {
+    width: 90%;
+    padding-left: 0px;
+  }
+  .myself {
+    flex-direction: column;
+  }
+  .education {
+    padding: 10px;
+  }
+  .mySelf-content p {
+    font-size: 20px;
+  }
+  .first-image {
+    width: 90%;
+  }
+ .first-content{
+     width: 90%;
+ }
+ .portfolio-title{
+     font-size: 30px;
+ }
+  .first-porfolio {
+    flex-direction: column;
+  }
+
+  .second-image {
+    width: 90%;
+  }
+ .second-content{
+     text-align: left;
+     width: 90%;
+ }
+  .third-image {
+    width: 90%;
+  }
+ .third-content{
+     width: 90%;
+ }
+ .portfolio-title{
+     font-size: 30px;
+ }
+  .first-porfolio {
+    flex-direction: column;
+  }
+  .second-porfolio {
+    flex-direction: column-reverse;
+  }
+  .third-porfolio {
+    flex-direction: column-reverse;
+  }
+
+}

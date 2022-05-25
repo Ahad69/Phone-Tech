@@ -32,7 +32,7 @@ const BusinessCard = () => {
           <div className="count">
             <FontAwesomeIcon className="text-2xl  pb-2" icon={faDollar} />
             <h6>REVENUE</h6>
-            <CountUp className="text-5xl fw-bold" duration={32265} end={32265} />
+            <CountUp className="text-5xl fw-bold" start={32265} duration={3200265} end={3200265} />
           </div>
         </div>
       </div>

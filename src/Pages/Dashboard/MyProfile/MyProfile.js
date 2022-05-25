@@ -15,7 +15,12 @@ const MyProfile = () => {
     const [profile , setProfile] = useState([])
     useEffect(()=>{
       
-        fetch(`http://localhost:5000/profile?userEmail=${user?.email}`)
+        fetch(`http://localhost:5000/profile?userEmail=${user?.email}` ,{
+          method : 'GET',
+          headers : {
+            'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
+          },
+        })
         .then(res=>res.json())
         .then(data => setProfile(data[0]))
        
