@@ -37,6 +37,7 @@ const Purchase = () => {
     event.preventDefault();
     const customerName = event.target.displayName.value;
     const customerEmail = event.target.email.value;
+    const custmerPhone = event.target.phone.value;
     const custmerAddress = event.target.address.value;
     const orderQuantity = event.target.quantity.value;
     const cost = selectedProducts?.price * orderQuantity
@@ -45,7 +46,7 @@ const Purchase = () => {
     const status = 'pending'
     const payment = 'unpaid'
 
-    const orderDetails = ({customerEmail,customerName,orderQuantity , custmerAddress ,productName ,productImage , status  , payment , cost} )
+    const orderDetails = ({customerEmail,customerName,orderQuantity , custmerPhone, custmerAddress ,productName ,productImage , status  , payment , cost} )
 
     fetch('http://localhost:5000/orders', {
       method:"POST",
@@ -132,6 +133,15 @@ const Purchase = () => {
            
           {error ? <span className="text-red-600 w-5 text-left">You can't order less than minimum quantity <br /> Or more than available quantity</span> : ""}
           <br />
+          <p className="text-white text-lg">Phone</p>
+          <input
+            type="text"
+            placeholder="Phone"
+            className="input  input-bordered input-error"
+            name="phone"
+            required
+          />
+            <br />
           <p className="text-white text-lg">Address</p>
           <input
             type="text"

@@ -1,8 +1,8 @@
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faLocationPin } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF , faLinkedin , faSkype } from "@fortawesome/free-brands-svg-icons";
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -14,23 +14,30 @@ const MyProfile = () => {
     const [user, loading, error] = useAuthState(auth);
     const [profile , setProfile] = useState([])
     useEffect(()=>{
+      
         fetch(`http://localhost:5000/profile?userEmail=${user?.email}`)
         .then(res=>res.json())
         .then(data => setProfile(data[0]))
-    },[profile])
+       
+    },[user])
 
+    console.log(profile?.phone)
    
     const handleProfile = event =>{
         event.preventDefault()
+      
         const education = event.target.education.value;
         const location = event.target.location.value;
+        const phone = event.target.phone.value;
+        console.log(event.target.phone.value)
+
         const facebook = event.target.facebook.value;
         const linkdin = event.target.linkdin.value;
         const skype = event.target.skype.value;
         const userEmail = user?.email;
 
-        const profileDetails = {education, location , facebook , linkdin , skype  , userEmail}
-        console.log(profileDetails)
+        const profileDetails = {education, location , phone , facebook , linkdin , skype  , userEmail}
+       
         fetch("http://localhost:5000/profile", {
             method: "POST",
             headers: {
@@ -50,6 +57,7 @@ const MyProfile = () => {
                 });
               }
             });
+          
           event.target.reset();
 
     }
@@ -61,6 +69,7 @@ const MyProfile = () => {
             <br />
             <h1 className='text-2xl'>Contact :- </h1>
            <h4>   <FontAwesomeIcon  icon={faEnvelope} /> : <a  href={`mailto:${user?.email}`} >{user?.email}</a></h4>
+           <h4>   <FontAwesomeIcon  icon={faPhone} /> : <a href={`tel:${profile?.phone}`}>{profile?.phone}</a></h4>
            <h4>   <FontAwesomeIcon  icon={faFacebookF} /> : <a href={profile?.facebook}>www.facebook.com/{user?.displayName}</a></h4>
            <h4>   <FontAwesomeIcon  icon={faLinkedin} /> : <a href={profile?.linkdin}>www.linkdin.com/{user?.displayName}</a></h4>
            <h4>   <FontAwesomeIcon  icon={faSkype} /> : <a href={profile?.skype}>www.skype.com/{user?.displayName}</a></h4>
@@ -96,6 +105,14 @@ const MyProfile = () => {
           required
         /> <br /><br />
           <h1 className='text-2xl'>Contact :- </h1>
+        <p className='text-lg text-left'>Phone : </p>
+        <input
+          type="text"
+          placeholder="Phone"
+          className="input  h-10  text-black   input-bordered input-error"
+          name="phone"
+          required
+        /> <br />
         <p className='text-lg text-left'>Facebook : </p>
         <input
           type="text"
@@ -127,6 +144,7 @@ const MyProfile = () => {
           type="submit"
         >
           Review
+        
         </button>
         </form>
         </div>

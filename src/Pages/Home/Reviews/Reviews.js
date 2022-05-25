@@ -31,8 +31,7 @@ const Reviews = () => {
       .then((data) => setReviews(data))
   );
 
-  const latestReviewsFind = reviews.slice(-6);
-  const latestPortfolio = latestReviewsFind.reverse();
+
 
   if (isLoading) {
     return (
@@ -58,7 +57,7 @@ const Reviews = () => {
         <h1 className="gradient-text">Reviews</h1>
         <small>Here's latest 6 reviews</small>
         <div className="reviews-container">
-          {latestPortfolio.map((review) => (
+          {reviews.map((review) => (
             <Fade up>
               <div className="review">
                 <span className="text-xl font-bold text-orange-600">

@@ -52,8 +52,8 @@ const Manufacturers = () => {
                 <img src="https://scontent.fdac99-1.fna.fbcdn.net/v/t1.6435-9/44263654_549674738794425_1158830662346604544_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGYXnqoIx-NhkbgUivl-qXjHrdeZJIHryoet15kkgevKnl0b6fvuiH5EiFP4IkwwoKk9VBwJ94lIhJrfrgQSVWZ&_nc_ohc=AOM0P7JpoKkAX-kpnR9&_nc_ht=scontent.fdac99-1.fna&oh=00_AT8_iqOXLUcKocqXQn0wvmh96vRX0TSScIAsHRCZeFGshw&oe=62B19627" alt="" />
               </div>
               <div class="menu-details">
-                <span>Sumit Kapoor 4</span>
-                <p className="text-xl">Frontend Developer</p>
+                <span>Anamul Jehad</span>
+                <p className="text-xl">RAM Developer</p>
               </div>
             </div>
             <a href="">Follow</a>
@@ -64,20 +64,20 @@ const Manufacturers = () => {
                 <img src="https://scontent.fdac99-1.fna.fbcdn.net/v/t39.30808-6/258457538_1084642495609750_1961693155899643805_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHJGXqV64u6x03D7xAa-KG7Nax0jpRnLBc1rHSOlGcsF3onRKstvROd-7NFf-OMc-b58VZgW4CUyn4Ey_gzGIUM&_nc_ohc=b-65XvA9z2YAX-CY0sp&tn=39rt_vJeKiEZv_Cp&_nc_ht=scontent.fdac99-1.fna&oh=00_AT9P2Reo3BcZJ7ANrbiN41NoDYWIHcket9rALfUOXYcttA&oe=628FDC03" alt="" />
               </div>
               <div class="menu-details">
-                <span>Sumit Kapoor 5</span>
-                <p className="text-xl">Frontend Developer</p>
+                <span>Jannatul Mawya</span>
+                <p className="text-xl">CPU Developer</p>
               </div>
             </div>
             <a href="">Follow</a>
           </div>
-          <div class="manu-card" style={{ "--delay": "4" }}>
+          <div class="manu-card" style={{ "--delay": "5" }}>
             <div class="manu-content">
               <div class="menu-img">
                 <img src="https://scontent.fdac99-1.fna.fbcdn.net/v/t1.6435-9/142320164_2886932184920690_356809367933378415_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHqyHkjt-k59Xz6XqEmFEXl_0Bhdj0BwyP_QGF2PQHDIxyOJz4n9Cs9np4lmUWRZEWyeFH217CalGuVcXos_v5K&_nc_ohc=lMYaD-ImP1kAX9LNHL9&_nc_ht=scontent.fdac99-1.fna&oh=00_AT_LvFz5HyW4c90uhT9LTjTS8oR4faW_RdyogL3ROX4_uA&oe=62AED0F5" alt="" />
               </div>
               <div class="menu-details">
-                <span>Sumit Kapoor 6</span>
-                <p className="text-xl">Frontend Developer</p>
+                <span>Emon Hasan</span>
+                <p className="text-xl">Hardwere Maker</p>
               </div>
             </div>
             <a href="">Follow</a>

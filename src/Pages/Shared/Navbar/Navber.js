@@ -60,11 +60,11 @@ const Navber = () => {
   </div>
   <div className="navbar-end  hidden lg:flex mr-3">
     {
-      user?.email ? <ul className='flex'> <li className='list-none mr-3'><div className="avatar online">
-      <div className="w-10 rounded-full">
-        <img src={user?.photoURL} />
-      </div>
-    </div></li> <button className=' text-red-600' onClick={logout}>Log Out</button> </ul> :   <li className='list-none '><ActiveRoute to='/login'>Login</ActiveRoute></li>
+      user?.email ? <ul className='flex'> <li className='list-none mr-3'>
+        {user?.displayName}
+      
+    </li>
+   <button className=' text-red-600' onClick={logout}>Log Out</button> </ul> :   <li className='list-none '><ActiveRoute to='/login'>Login</ActiveRoute></li>
     }
 
   

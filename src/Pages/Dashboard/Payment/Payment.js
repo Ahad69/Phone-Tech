@@ -30,6 +30,7 @@ const Payment = () => {
                 <div className="payment-details">
                     <h2>Product :<span className='text-red-600'> {orders.productName}</span></h2>
                     <h2>Order Quantity :<span className='text-red-600'> {orders.orderQuantity} piece.</span></h2>
+                    <h4>Phone : <span className='text-red-600'> {orders?.custmerPhone}</span></h4>
                     <h4>Address : <span className='text-red-600'> {orders.custmerAddress}</span></h4>
                     <br />
                     <p className='text-2xl'>Cost of Your Order : <span className='text-red-600'>$ {orders?.cost}</span></p>

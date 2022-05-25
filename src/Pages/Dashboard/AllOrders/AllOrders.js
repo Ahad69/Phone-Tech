@@ -109,7 +109,9 @@ const AllOrders = () => {
                 <button className="btn btn-ghost btn-xs">{order.payment}</button>
                 </th>
                 <th>
-                  <button onClick={()=>handleDelete(order._id)} className="btn btn-ghost btn-xs">DELETE</button>
+                  {
+                    order?.payment == "paid" ? <button disabled className="btn btn-ghost btn-xs">DELETE</button> : <button onClick={()=>handleDelete(order._id)} className="btn btn-ghost btn-xs">DELETE</button>
+                  }
                 </th>
               </tr>)
            }

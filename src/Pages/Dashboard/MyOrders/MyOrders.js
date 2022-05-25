@@ -25,7 +25,7 @@ const MyOrders = () => {
           return res.json()
         })
         .then((data) => setOrders(data));
-    }, [orders]);
+    }, []);
 
     const handleDelete = id =>{
 
@@ -63,7 +63,7 @@ const MyOrders = () => {
       setNoOrder(false)
     }
     })
-    console.log()
+ 
     return (
       <div className='pt-10'>
        
@@ -79,7 +79,10 @@ const MyOrders = () => {
                     </th>
                     <th>Product</th>
                     <th>Customer</th>
-                    <th>Order Quantity</th>
+                   {
+                     orders[0]?.transactionId ? <th>Order transactionId</th> : <th>Order Quantity</th>
+                   }
+                    
                     <th>Status</th>
                     <th>Payment</th>
                     <th>Action</th>
@@ -117,7 +120,11 @@ const MyOrders = () => {
                           {order.customerEmail}
                         </span>
                       </td>
-                      <td>{order.orderQuantity}</td>
+
+                      {
+                        order.transactionId ? <td>{order.transactionId}</td> : <td>{order.orderQuantity}</td>
+                      }
+
                       <th>
                         <small className="text-red-600">{order.status}</small>
                         
@@ -130,7 +137,9 @@ const MyOrders = () => {
                         
                         </th>
                       <th>
-                        <button onClick={()=>handleDelete(order._id)} className="btn btn-ghost btn-xs">Cancel</button>
+                        {
+                          order?.payment == 'paid' ? <button disabled className="btn btn-ghost btn-xs">Cancel</button> : <button onClick={()=>handleDelete(order._id)} className="btn btn-ghost btn-xs">Cancel</button>
+                        }
                       </th>
                     </tr>)
                  }
