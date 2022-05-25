@@ -25,7 +25,7 @@ const MyOrders = () => {
           return res.json()
         })
         .then((data) => setOrders(data));
-    }, []);
+    }, [orders]);
 
     const handleDelete = id =>{
 
@@ -63,6 +63,7 @@ const MyOrders = () => {
       setNoOrder(false)
     }
     })
+    console.log()
     return (
       <div className='pt-10'>
        
@@ -122,7 +123,10 @@ const MyOrders = () => {
                         
                       </th>
                       <th>
-                        <button className="btn btn-ghost btn-xs"><Link to={`/dashboard/payment/${order._id}`}>Pay</Link></button>
+                        {
+                          order.payment == 'unpaid' ? <button className="btn btn-ghost btn-xs"><Link to={`/dashboard/payment/${order._id}`}>Pay</Link></button> : "Paid"
+                        }
+                        
                         
                         </th>
                       <th>

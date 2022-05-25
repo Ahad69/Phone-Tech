@@ -137,7 +137,7 @@ const Sign = () => {
                             }</h6>
                           <button type="submit" className="login-btn mt-4">
                             {loginLoading ? (
-                              <svg className="animate-spin h-5 w-5  bg-transparent border-x-4 rounded-xl  border-sky-600 ...">
+                              <svg className="animate-spin h-5 w-5  bg-transparent border-x-4 rounded-xl   border-sky-600 ...">
                                 {" "}
                               </svg>
                             ) : (
@@ -248,7 +248,7 @@ const Sign = () => {
 
                           <button type="submit" className="login-btn mt-4">
                             {updating || regiLoading || loginLoading ? (
-                              <svg className="animate-spin h-5 w-5 mr-3 bg-transparent border-x-4 rounded-xl  border-orange-600 ...">
+                              <svg className="animate-spin h-5 w-5 mr-3 bg-transparent border-x-4 rounded-xl   border-sky-600 ...">
                                 {" "}
                               </svg>
                             ) : (

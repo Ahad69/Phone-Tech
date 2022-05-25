@@ -46,7 +46,7 @@ const MakeAdmin = () => {
         .then(res => res.json())
         .then(data => {
             if (data.modifiedCount === 1) {
-              Swal.fire("Congrars!", "Your made him an admin.", "success");
+              Swal.fire("Congrats!", "Your made him an admin.", "success");
             }
           });
         

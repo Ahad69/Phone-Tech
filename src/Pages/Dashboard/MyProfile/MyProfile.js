@@ -17,7 +17,7 @@ const MyProfile = () => {
         fetch(`http://localhost:5000/profile?userEmail=${user?.email}`)
         .then(res=>res.json())
         .then(data => setProfile(data[0]))
-    },[])
+    },[profile])
 
    
     const handleProfile = event =>{
