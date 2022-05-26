@@ -1,5 +1,5 @@
 import React from "react";
-import { faBook } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faFlag } from "@fortawesome/free-solid-svg-icons";
 import { faDollar } from "@fortawesome/free-solid-svg-icons";
@@ -15,7 +15,7 @@ const BusinessCard = () => {
         <br />
         <div className="counts container">
           <div className="count">
-            <FontAwesomeIcon className="text-2xl  pb-2" icon={faBook} />
+            <FontAwesomeIcon className="text-2xl  pb-2" icon={faUser} />
             <h6>CUSTOMERS </h6>
             <CountUp className="text-5xl fw-bold" duration={5} end={1250} />
           </div>
