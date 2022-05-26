@@ -11,7 +11,7 @@ import { useQuery } from "react-query";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   // useEffect(()=>{
-  //     fetch('http://localhost:5000/reviews')
+  //     fetch('https://fast-sands-29069.herokuapp.com/reviews')
   //     .then(res=> res.json())
   //     .then(data=> setReviews(data))
   // },[])
@@ -21,7 +21,7 @@ const Reviews = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://fast-sands-29069.herokuapp.com/reviews", {
       method: "GET",
       headers: {
         "constent-type": "application/json",

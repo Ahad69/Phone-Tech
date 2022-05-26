@@ -7,7 +7,7 @@ const MakeAdmin = () => {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate()
   useEffect(() => {
-    fetch(`http://localhost:5000/users` , {
+    fetch(`https://fast-sands-29069.herokuapp.com/users` , {
       method: 'GET',
       headers : {
         'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
@@ -36,7 +36,7 @@ const MakeAdmin = () => {
       confirmButtonText: "Yes, Make Admin!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/admin/${email}` , {
+        fetch(`https://fast-sands-29069.herokuapp.com/users/admin/${email}` , {
           method : 'PUT',
           headers : {
             'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
@@ -64,7 +64,7 @@ const MakeAdmin = () => {
       confirmButtonText: "Yes! , Delete It",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${id}` , {
+        fetch(`https://fast-sands-29069.herokuapp.com/users/${id}` , {
           method : 'DELETE',
         })
         .then(res => res.json())

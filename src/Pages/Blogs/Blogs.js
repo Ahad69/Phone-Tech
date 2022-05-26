@@ -52,8 +52,15 @@ Now let’s discuss a state which is required to be available throughout the app
               </div>
            <div className="py-5">
                <h1 className='text-3xl font-bold text-primary'>4. You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?</h1>
-               <img src={1} alt="" />
-                  </div>
+                <ul>
+                    <li>1. Take the value of the search box.</li>
+                    <li>2. find in the array of products</li>
+                    <li>3. condition product name == search value</li>
+                    <li>4. get the value of find data </li>
+                </ul>
+                <h1>Example : </h1>
+                <img src="https://i.ibb.co/Mg4Zkp8/a.png" alt="" />
+            </div>
 
            <div className="py-5">
                <h1 className='text-3xl font-bold text-red-600'> 5.What is a unit test? Why should write unit tests?</h1>

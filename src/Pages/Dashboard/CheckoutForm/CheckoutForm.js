@@ -16,7 +16,7 @@ const cost = orders.cost
   const [clientSecret, setClientSecret] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://fast-sands-29069.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -83,7 +83,7 @@ const cost = orders.cost
           transactionId : paymentIntent.id ,
       }
 
-      fetch(`http://localhost:5000/order/${_id}` , {
+      fetch(`https://fast-sands-29069.herokuapp.com/order/${_id}` , {
           method : 'PATCH',
           headers: {
             "Content-Type": "application/json",

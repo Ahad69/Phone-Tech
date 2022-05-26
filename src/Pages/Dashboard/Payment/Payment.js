@@ -9,7 +9,7 @@ const Payment = () => {
     const {id} = useParams()
     const [orders , setOrders] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/orders/${id}` , {
+        fetch(`https://fast-sands-29069.herokuapp.com/orders/${id}` , {
             method : "GET",
             headers : {
                 'authorization' : `Bearer ${localStorage.getItem('accessToken')}`

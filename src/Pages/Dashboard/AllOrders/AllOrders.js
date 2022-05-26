@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const AllOrders = () => {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/all-orders")
+    fetch("https://fast-sands-29069.herokuapp.com/all-orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [orders]);
@@ -21,7 +21,7 @@ const AllOrders = () => {
      confirmButtonText: "Yes, delete it!",
    }).then((result) => {
      if (result.isConfirmed) {
-       const url = `http://localhost:5000/orders/${id}`;
+       const url = `https://fast-sands-29069.herokuapp.com/orders/${id}`;
        fetch(url, {
          method: "DELETE",
        })
@@ -40,7 +40,7 @@ const AllOrders = () => {
  const handleStatus = id =>{
    const status = 'shipped'
 
-    fetch(`http://localhost:5000/order/${id}` , {
+    fetch(`https://fast-sands-29069.herokuapp.com/order/${id}` , {
       method : 'PUT',
       headers : {
         'content-type' : "application/json"

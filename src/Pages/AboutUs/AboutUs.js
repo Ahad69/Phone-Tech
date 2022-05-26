@@ -7,7 +7,7 @@ const AboutUs = () => {
             <h1 className='gradient-text'>About Us</h1>
             <div className="row">
                 <div className="about-image">
-                <img  src="https://i.ibb.co/x3wCs6P/best-travel-agency-in-chandigarh-1.jpg" alt="" />
+                <img  src="https://thumbs.dreamstime.com/b/smart-phone-components-isolate-blue-background-copy-space-73522296.jpg" alt="" />
                 </div>
                 <div className="about-content">
                 <h1 className="text-red-600 font-bold text-3xl">Our Vision & Values</h1>
@@ -24,7 +24,7 @@ const AboutUs = () => {
                 </div>
 
                 <div className="about-image">
-                <img src="https://i.ibb.co/RQZs1f5/World-Map-Travel-Full-HD-1.jpg" alt="" />
+                <img src="https://i0.wp.com/www.mobilecellphonerepairing.com/wp-content/uploads/2012/09/Card-Level-Parts-of-Mobile-Cell-Phone.jpg?fit=1024%2C576" alt="" />
                 </div>
             </div>
             

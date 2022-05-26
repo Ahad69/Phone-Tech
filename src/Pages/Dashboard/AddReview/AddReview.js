@@ -30,7 +30,7 @@ const AddReview = () => {
 
     const reviewDetails = { name, rating, greeting, text, date, time };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://fast-sands-29069.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

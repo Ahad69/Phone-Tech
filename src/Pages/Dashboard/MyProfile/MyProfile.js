@@ -15,7 +15,7 @@ const MyProfile = () => {
     const [profile , setProfile] = useState([])
     useEffect(()=>{
       
-        fetch(`http://localhost:5000/profile?userEmail=${user?.email}` ,{
+        fetch(`https://fast-sands-29069.herokuapp.com/profile?userEmail=${user?.email}` ,{
           method : 'GET',
           headers : {
             'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
@@ -43,7 +43,7 @@ const MyProfile = () => {
 
         const profileDetails = {education, location , phone , facebook , linkdin , skype  , userEmail}
        
-        fetch("http://localhost:5000/profile", {
+        fetch("https://fast-sands-29069.herokuapp.com/profile", {
             method: "POST",
             headers: {
               "content-type": "application/json",

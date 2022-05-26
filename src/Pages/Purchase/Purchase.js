@@ -48,7 +48,7 @@ const Purchase = () => {
 
     const orderDetails = ({customerEmail,customerName,orderQuantity , custmerPhone, custmerAddress ,productName ,productImage , status  , payment , cost} )
 
-    fetch('http://localhost:5000/orders', {
+    fetch('https://fast-sands-29069.herokuapp.com/orders', {
       method:"POST",
       headers:{
         'content-type' : 'application/json'
