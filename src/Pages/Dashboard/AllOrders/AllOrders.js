@@ -7,10 +7,10 @@ const AllOrders = () => {
     fetch("https://fast-sands-29069.herokuapp.com/all-orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
-  }, []);
+  }, [orders]);
 
   const handleDelete = id =>{
-
+ 
     Swal.fire({
      title: "Are you sure?",
      text: "You won't be able to revert this!",
@@ -71,7 +71,7 @@ const AllOrders = () => {
           </thead>
           <tbody>
            {
-               orders.map(order =>  <tr>
+               orders.map(order =>  <tr key={order._i}>
                 <th>
                   <label>
                     <input type="checkbox" className="checkbox" />

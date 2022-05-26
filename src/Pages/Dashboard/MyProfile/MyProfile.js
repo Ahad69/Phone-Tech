@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 const MyProfile = () => {
     const [user, loading, error] = useAuthState(auth);
     const [profile , setProfile] = useState([])
+
     useEffect(()=>{
       
         fetch(`https://fast-sands-29069.herokuapp.com/profile?userEmail=${user?.email}` ,{
@@ -24,7 +25,7 @@ const MyProfile = () => {
         .then(res=>res.json())
         .then(data => setProfile(data[0]))
        
-    },[])
+    },[user])
 
     console.log(profile?.phone)
    

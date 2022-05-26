@@ -11,7 +11,7 @@ const MyOrders = () => {
     const navigate = useNavigate()
     
     useEffect(() => {
-      fetch(`https://fast-sands-29069.herokuapp.com/orders?customerEmail=${user.email}` , {
+      fetch(`http://localhost:5000/orders?customerEmail=${user.email}` , {
             method: 'GET',
             headers : {
               'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
@@ -24,8 +24,14 @@ const MyOrders = () => {
           }
           return res.json()
         })
-        .then((data) => setOrders(data));
-    },[]);
+        .then(data => {
+         
+          setOrders(data)
+        });
+    }, [orders]);
+
+
+
 
     const handleDelete = id =>{
 
@@ -39,7 +45,7 @@ const MyOrders = () => {
         confirmButtonText: "Yes, delete it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          const url = `https://fast-sands-29069.herokuapp.com/orders/${id}`;
+          const url = `http://localhost:5000/orders/${id}`;
           fetch(url, {
             method: "DELETE",
           })

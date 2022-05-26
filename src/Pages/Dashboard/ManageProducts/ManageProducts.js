@@ -59,7 +59,7 @@ const ManageProducts = () => {
           </thead>
           <tbody>
             {products.map((product) => (
-              <tr>
+              <tr key={product._id}>
                 <th>
                   <label>
                     <input type="checkbox" class="checkbox" />
