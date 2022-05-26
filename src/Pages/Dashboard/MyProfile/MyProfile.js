@@ -24,7 +24,7 @@ const MyProfile = () => {
         .then(res=>res.json())
         .then(data => setProfile(data[0]))
        
-    },[user])
+    },[])
 
     console.log(profile?.phone)
    

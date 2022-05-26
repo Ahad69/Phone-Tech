@@ -25,7 +25,8 @@ const HomeCards = () => {
   const randomColor3 = colors[Math.floor(Math.random() * colors.length)];
 
   const [products] = useProducts();
-  const firstTreeProducts = products.slice(1, 4);
+  const firstTreeProducts = products.slice(-3);
+  const latestProducts = firstTreeProducts.reverse()
 
 
 //   const {name , img , quantity , minimum , description , price} = firstTreeProducts
@@ -35,7 +36,7 @@ const HomeCards = () => {
       <h1 className="gradient-text pt-10">Our Tools</h1>
       <div className="card-container ">
         {
-           firstTreeProducts.map(product => 
+           latestProducts.map(product => 
            <div
            key={product._id}
            data-aos="fade-up"

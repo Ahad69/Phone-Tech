@@ -9,8 +9,8 @@ const MyOrders = () => {
     const [noOrder , setNoOrder] = useState(false)
     const [orders, setOrders] = useState([]);
     const navigate = useNavigate()
+    
     useEffect(() => {
-
       fetch(`https://fast-sands-29069.herokuapp.com/orders?customerEmail=${user.email}` , {
             method: 'GET',
             headers : {
@@ -25,7 +25,7 @@ const MyOrders = () => {
           return res.json()
         })
         .then((data) => setOrders(data));
-    }, []);
+    },[]);
 
     const handleDelete = id =>{
 

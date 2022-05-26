@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 const useAdmin = user =>{
     const [admin , setAdmin] = useState(false)
     const [isLoading , setIsLoading] = useState(true)
+    console.log(admin)
     useEffect(()=>{
         const email = user?.email;
         if(email){

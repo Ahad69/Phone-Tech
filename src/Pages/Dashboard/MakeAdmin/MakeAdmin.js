@@ -11,16 +11,17 @@ const MakeAdmin = () => {
       method: 'GET',
       headers : {
         'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
-      }
+      },
     })
     .then((res) => {
       if(res.status == 401 || res.status == 403){
-        navigate('/dashboard')
+        // navigate('/dashboard')
       }
       return res.json()
     })
       .then((data) => setUsers(data));
-  }, [users]);
+  }, []);
+
 
   const adminFind = users.filter(role => role.role == "admin")
   

@@ -7,7 +7,7 @@ const AllOrders = () => {
     fetch("https://fast-sands-29069.herokuapp.com/all-orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
-  }, [orders]);
+  }, []);
 
   const handleDelete = id =>{
 

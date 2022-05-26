@@ -63,7 +63,7 @@ const Sign = () => {
     } else {
       setCheckPass(false);
     }
-
+    
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName, photoURL });
     event.target.reset();

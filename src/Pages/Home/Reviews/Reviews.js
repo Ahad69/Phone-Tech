@@ -9,28 +9,11 @@ import "./Reviews.css";
 import { useQuery } from "react-query";
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
-  // useEffect(()=>{
-  //     fetch('https://fast-sands-29069.herokuapp.com/reviews')
-  //     .then(res=> res.json())
-  //     .then(data=> setReviews(data))
-  // },[])
-
-  const {
-    data: users,
-    isLoading,
-    refetch,
-  } = useQuery("users", () =>
-    fetch("https://fast-sands-29069.herokuapp.com/reviews", {
-      method: "GET",
-      headers: {
-        "constent-type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setReviews(data))
-  );
-
+  const { isLoading, error, data } = useQuery('repoData', () =>
+  fetch('https://fast-sands-29069.herokuapp.com/reviews').then(res =>
+    res.json()
+  )
+)
 
 
   if (isLoading) {
@@ -57,8 +40,8 @@ const Reviews = () => {
         <h1 className="gradient-text">Reviews</h1>
         <small>Here's latest 6 reviews</small>
         <div className="reviews-container">
-          {reviews.map((review) => (
-            <Fade up>
+          {data.map((review) => (
+            <Fade up key={review._id}>
               <div className="review">
                 <span className="text-xl font-bold text-orange-600">
                   <Rating
