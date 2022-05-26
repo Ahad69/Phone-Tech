@@ -30,6 +30,8 @@ const Navber = () => {
       <li><ActiveRoute to='/'>Home</ActiveRoute></li>
       <li className='after'><ActiveRoute to='/products'>Products</ActiveRoute></li>
       <li className='after'><ActiveRoute to='/portfolio'>Portfolio</ActiveRoute></li>
+      <li className='after'><ActiveRoute to='/blogs'>Blogs</ActiveRoute></li>
+      <li className='after'><ActiveRoute to='/about'>About</ActiveRoute></li>
       {
         user?.email &&  <li className='after'><ActiveRoute to='/dashboard'>Dashboard</ActiveRoute></li>
       }
@@ -53,6 +55,8 @@ const Navber = () => {
     <li className='after'><ActiveRoute to='/'>Home</ActiveRoute></li>
       <li className='after'><ActiveRoute to='/products'>Products</ActiveRoute></li>
       <li className='after'><ActiveRoute to='/portfolio'>Portfolio</ActiveRoute></li>
+      <li className='after'><ActiveRoute to='/blogs'>Blogs</ActiveRoute></li>
+      <li className='after'><ActiveRoute to='/about'>About</ActiveRoute></li>
       {
         user?.email &&  <li className='after'><ActiveRoute to='/dashboard'>Dashboard</ActiveRoute></li>
       }

@@ -23,6 +23,8 @@ import ManageProducts from "./Pages/Dashboard/ManageProducts/ManageProducts";
 import RequireAdmin from "./Pages/Auth/RequireAdmin/RequireAdmin";
 import Payment from "./Pages/Dashboard/Payment/Payment";
 import Portfolio from "./Pages/Porfolio/Portfolio";
+import Blogs from "./Pages/Blogs/Blogs";
+import AboutUs from "./Pages/AboutUs/AboutUs";
 
 function App() {
   useEffect(() => {
@@ -53,6 +55,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route
           path="/products/:id"
           element={
